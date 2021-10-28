@@ -4,19 +4,19 @@
 _get_repolink () {
     local regex
     regex='(https?)://github.com/.+/.+'
-    if [[ $LEGEND_REPO == "LEGENDBOT" ]]
+    if [[ $DINANATH_REPO == "DINANATHBOT" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL0xFR0VORC1PUy9MRUdFTkRVU0VSQk9UL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
-    elif [[ $LEGEND_REPO == "LEGENDBOT" ]]
+    elif [[ $DINANATH_REPO == "DINANATHBOT" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL0xFR0VORC1PUy9MRUdFTkRVU0VSQk9UL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
-    elif [[ $LEGEND_REPO =~ $regex ]]
+    elif [[ $DINANATH_REPO =~ $regex ]]
     then
-        if [[ $LEGEND_REPO_BRANCH ]]
+        if [[ $DINANATH_REPO_BRANCH ]]
         then
-            echo "${LEGEND_REPO}/archive/${LEGEND_REPO_BRANCH}.zip"
+            echo "${DINANATH_REPO}/archive/${LEGEND_REPO_BRANCH}.zip"
         else
-            echo "${LEGEND_REPO}/archive/master.zip"
+            echo "${DINANATH_REPO}/archive/master.zip"
         fi
     else
         echo "aHR0cHM6Ly9naXRodWIuY29tL0xFR0VORC1PUy9MRUdFTkRVU0VSQk9UL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
@@ -26,17 +26,17 @@ _get_repolink () {
 
 _set_bot () {
     local zippath
-    zippath="LEGENDBOT.zip"
-    echo "  ⚜Downloading LegendBot V3.0Source Code...❤"
+    zippath="DINANATHBOT.zip"
+    echo "  ⚜Downloading DinanathBot V5.0Source Code...❤"
     wget -q $(_get_repolink) -O "$zippath"
     echo "  Unpacking Data ..."
     LEGENDPATH=$(zipinfo -1 "$zippath" | grep -v "/.");
     unzip -qq "$zippath"
     echo "Done"
-    echo "  LegendBot V3.0 Cleaning.."
+    echo "  DINANATH V5.0 Cleaning.."
     rm -rf "$zippath"
     sleep 5
-    cd $LEGENDPATH
+    cd $DINANATHPATH
     echo "    • Starting Lêɠêɳ̃dẞøt 3.0•    "
     echo "
     LEGENDBOT
