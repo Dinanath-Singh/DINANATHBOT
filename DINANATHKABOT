@@ -37,9 +37,9 @@ _set_bot () {
     rm -rf "$zippath"
     sleep 5
     cd $DINANATHPATH
-    echo "    • Starting Lêɠêɳ̃dẞøt 3.0•    "
+    echo "    • Starting Lêɠêɳ̃dDINANATG 5.0•    "
     echo "
-    LEGENDBOT
+    DINANATHBOT
     "
 
     python3 ../setup/updater.py ../requirements.txt requirements.txt
